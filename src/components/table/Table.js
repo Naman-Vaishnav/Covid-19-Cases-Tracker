@@ -76,14 +76,6 @@ function MyTable({data}) {
                 </Typography>
               </TableCell>
               <TableCell align="right">
-              <Typography >
-                    <CountUp
-                        start={0}
-                        end={row.recovered}
-                        duration ={1}
-                        separator=","
-                    />
-                </Typography>
                 <Typography >
                     <CountUp
                         start={0}

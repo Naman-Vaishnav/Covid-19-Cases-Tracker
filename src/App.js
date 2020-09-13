@@ -51,8 +51,8 @@ function App () {
       <div>
       <Cards data={data.statewise[0]}/>
       <MyTable data={data.statewise}/>
-      <Charts/>
-      <CountryPicker />
+      {/* <Charts/>
+      <CountryPicker /> */}
       </div>
     );
   
