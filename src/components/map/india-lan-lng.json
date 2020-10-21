@@ -1,0 +1,243 @@
+[
+  {
+    "no": 1,
+    "State": "ANDAMAN AND NICOBAR",
+    "lat": 11.66702557,
+    "lng": 92.73598262
+  },
+  {
+    "no": 2,
+    "State": "ANDHRA PRADESH",
+    "lat": 14.7504291,
+    "lng": 78.57002559
+  },
+  {
+    "no": 3,
+    "State": "ARUNACHAL PRADESH",
+    "lat": 27.10039878,
+    "lng": 93.61660071
+  },
+  {
+    "no": 4,
+    "State": "ASSAM",
+    "lat": 26.7499809,
+    "lng": 94.21666744
+  },
+  {
+    "no": 5,
+    "State": "BIHAR",
+    "lat": 25.78541445,
+    "lng": 87.4799727
+  },
+  {
+    "no": 6,
+    "State": "CHANDIGARH",
+    "lat": 30.71999697,
+    "lng": 76.78000565
+  },
+  {
+    "no": 7,
+    "State": "CHHATTISGARH",
+    "lat": 22.09042035,
+    "lng": 82.15998734
+  },
+  {
+    "no": 8,
+    "State": "DADRA AND NAGAR HAVELI",
+    "lat": 20.26657819,
+    "lng": 73.0166178
+  },
+  {
+    "no": 9,
+    "State": "DELHI",
+    "lat": 28.6699929,
+    "lng": 77.23000403
+  },
+  {
+    "no": 10,
+    "State": "GOA",
+    "lat": 15.491997,
+    "lng": 73.81800065
+  },
+  {
+    "no": 11,
+    "State": "HARYANA",
+    "lat": 28.45000633,
+    "lng": 77.01999101
+  },
+  {
+    "no": 12,
+    "State": "HIMACHAL PRADESH",
+    "lat": 31.10002545,
+    "lng": 77.16659704
+  },
+  {
+    "no": 13,
+    "State": "JAMMU AND KASHMIR",
+    "lat": 34.29995933,
+    "lng": 74.46665849
+  },
+  {
+    "no": 14,
+    "State": "JHARKHAND",
+    "lat": 23.80039349,
+    "lng": 86.41998572
+  },
+  {
+    "no": 15,
+    "State": "KARNATAKA",
+    "lat": 12.57038129,
+    "lng": 76.91999711
+  },
+  {
+    "no": 16,
+    "State": "KERALA",
+    "lat": 8.900372741,
+    "lng": 76.56999263
+  },
+  {
+    "no": 17,
+    "State": "LAKSHADWEEP",
+    "lat": 10.56257331,
+    "lng": 72.63686717
+  },
+  {
+    "no": 18,
+    "State": "MADHYA PRADESH",
+    "lat": 21.30039105,
+    "lng": 76.13001949
+  },
+  {
+    "no": 19,
+    "State": "MAHARASHTRA",
+    "lat": 19.25023195,
+    "lng": 73.16017493
+  },
+  {
+    "no": 20,
+    "State": "MANIPUR",
+    "lat": 24.79997072,
+    "lng": 93.95001705
+  },
+  {
+    "no": 21,
+    "State": "MEGHALAYA",
+    "lat": 25.57049217,
+    "lng": 91.8800142
+  },
+  {
+    "no": 22,
+    "State": "MIZORAM",
+    "lat": 23.71039899,
+    "lng": 92.72001461
+  },
+  {
+    "no": 23,
+    "State": "NAGALAND",
+    "lat": 25.6669979,
+    "lng": 94.11657019
+  },
+  {
+    "no": 24,
+    "State": "ORISSA",
+    "lat": 19.82042971,
+    "lng": 85.90001746
+  },
+  {
+    "no": 25,
+    "State": "PUDUCHERRY",
+    "lat": 11.93499371,
+    "lng": 79.83000037
+  },
+  {
+    "no": 26,
+    "State": "PUNJAB",
+    "lat": 31.51997398,
+    "lng": 75.98000281
+  },
+  {
+    "no": 27,
+    "State": "RAJASTHAN",
+    "lat": 26.44999921,
+    "lng": 74.63998124
+  },
+  {
+    "no": 28,
+    "State": "SIKKIM",
+    "lat": 27.3333303,
+    "lng": 88.6166475
+  },
+  {
+    "no": 29,
+    "State": "TAMIL NADU",
+    "lat": 12.92038576,
+    "lng": 79.15004187
+  },
+  {
+    "no": 30,
+    "State": "TRIPURA",
+    "lat": 23.83540428,
+    "lng": 91.27999914
+  },
+  {
+    "no": 31,
+    "State": "UTTAR PRADESH",
+    "lat": 27.59998069,
+    "lng": 78.05000565
+  },
+  {
+    "no": 32,
+    "State": "UTTARANCHAL",
+    "lat": 30.32040895,
+    "lng": 78.05000565
+  },
+  {
+    "no": 33,
+    "State": "WEST BENGAL",
+    "lat": 22.58039044,
+    "lng": 88.32994665
+  },
+  {
+    "no": 34,
+    "State": "ODISHA",
+    "lat": 20.9517,
+    "lng": 85.0985
+  },
+  {
+    "no": 35,
+    "State": "Telangana",
+    "lat": 18.1124,
+    "lng": 79.0193
+  },
+  {
+    "no": 36,
+    "State": "Gujarat",
+    "lat": 22.2587,
+    "lng": 71.1924
+  },
+  {
+    "no": 37,
+    "State": "Uttarakhand",
+    "lat": 30.0668,
+    "lng": 79.0193
+  },
+  {
+    "no": 38,
+    "State": "Ladakh",
+    "lat": 34.209515,
+    "lng": 77.615112
+  },
+  {
+    "no": 39,
+    "State": "Andaman and Nicobar Islands",
+    "lat": 11.7401,
+    "lng": 92.6586
+  },
+  {
+    "no": 40,
+    "State": "Dadra and Nagar Haveli and Daman and Diu",
+    "lat": 20.1809,
+    "lng": 73.0169
+  }
+  
+]

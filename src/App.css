@@ -1,0 +1,49 @@
+.body {
+    background-color: #f5f6fa !important;
+  }
+.app{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f5f6fa;
+    padding: 10px;
+}
+
+.app-left {
+    flex: 0.9;
+  }
+
+.app-center {
+    
+    background-color: #f5f6fa;
+  }
+
+  .app__stats {
+    background-color: #f5f6fa;
+    align-items: center;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    flex:0.5;
+    padding: 10px 300px;
+    
+  }
+
+  .image{
+    background-color: #f5f6fa; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+   
+  }
+  @media (max-width: 1000px) {
+    .app {
+      flex-direction: column;
+    }
+    .app__stats {
+      padding: 10px 10px;
+    
+    }
+    
+
+  }

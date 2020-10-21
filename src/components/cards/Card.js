@@ -10,9 +10,9 @@ function Cards( props) {
        
         <div className={styles.container}>
         
-        <Typography align="center" color="textSecondary">Last Updated:{props.data.lastupdatedtime}</Typography>
+        
             <Grid container spacing={.5} justify="center">
-                <Grid item component={Card} xs={5} md={2} className={cx(styles.card,styles.active)}>
+                <Grid item component={Card}  className={cx(styles.card,styles.active)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Active</Typography>
                         <Typography variant="h4">
@@ -26,7 +26,7 @@ function Cards( props) {
                         
                     </CardContent>   
                 </Grid>
-                <Grid item component={Card} xs={5} md={2} className={cx(styles.card,styles.confirmed)}>
+                <Grid item component={Card}  className={cx(styles.card,styles.confirmed)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Confirmed</Typography>
                         <Typography variant="h4">
@@ -40,7 +40,7 @@ function Cards( props) {
                         
                     </CardContent>   
                 </Grid>
-                <Grid item component={Card} xs={5} md={2} className={cx(styles.card,styles.recovered)}>
+                <Grid item component={Card}  className={cx(styles.card,styles.recovered)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h4">
@@ -54,7 +54,7 @@ function Cards( props) {
                         
                     </CardContent>   
                 </Grid>
-                <Grid item component={Card} xs={5} md={2} className={cx(styles.card,styles.deaths)}>
+                <Grid item component={Card}  className={cx(styles.card,styles.deaths)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                             <Typography variant="h4">

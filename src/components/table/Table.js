@@ -3,36 +3,65 @@ import {Table,
 TableContainer,
 Paper,TableBody,
 TableHead,TableRow,
-TableCell,
-makeStyles,withStyles,
+TableCell,createMuiTheme,
+makeStyles,withStyles,ThemeProvider,
 Typography
 } from '@material-ui/core';
 import CountUp from 'react-countup';
+import "./Table.css";
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.info.light,
     color: theme.palette.common.white,
+    width:50
   },
   body: {
     fontSize: 14,
+    width:1
   },
 }))(TableCell);
 
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      
+      
+    },
+  },
+
+
+}))(TableRow);
+
+const useStyles = makeStyles({
+  table: {
+    height:700,
+    overflow :'auto'
+    
+    
+    
+    
+  },
+});
+
+
 function MyTable({data}) {
     
-
-    //console.log(data[0].active);
+    const classes = useStyles();
+    //console.log(data);
     return(
-    <TableContainer component={Paper}>
-      <Table align="center" style={{width: 700  }} aria-label="customized table">
+      <div className="table" >
+    <ThemeProvider  >
+    <TableContainer className={classes.table} component={Paper}>
+      <Table   aria-label="customized table">
         <TableHead>
-          <TableRow>
+          <StyledTableRow>
             <StyledTableCell>State</StyledTableCell>
             <StyledTableCell align="right">Active</StyledTableCell>
             <StyledTableCell align="right">Confirmed</StyledTableCell>
             <StyledTableCell align="right">Recovered</StyledTableCell>
             <StyledTableCell align="right">Deaths</StyledTableCell>
-          </TableRow>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {data
@@ -40,11 +69,11 @@ function MyTable({data}) {
               row => row.state!=='Total'
           )
           .map((row) => (
-            <TableRow style={{height: 5}} key={row.state}>
-              <TableCell component="th" scope="row">
+            <StyledTableRow style={{height: 1}} key={row.state}>
+              <StyledTableCell component="th" scope="row">
                 {row.state}
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <Typography >
                     <CountUp
                         start={0}
@@ -53,8 +82,8 @@ function MyTable({data}) {
                         separator=","
                     />
                 </Typography>
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
               <Typography >
                     <CountUp
                         start={0}
@@ -64,8 +93,8 @@ function MyTable({data}) {
                     />
                 </Typography>
               
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
               <Typography >
                     <CountUp
                         start={0}
@@ -74,8 +103,8 @@ function MyTable({data}) {
                         separator=","
                     />
                 </Typography>
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <Typography >
                     <CountUp
                         start={0}
@@ -84,12 +113,15 @@ function MyTable({data}) {
                         separator=","
                     />
                 </Typography>
-                </TableCell>
-            </TableRow>
+                </StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </ThemeProvider>
+    </div>
+    
     )
 }
 
