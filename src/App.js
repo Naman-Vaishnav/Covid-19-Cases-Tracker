@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 
 
-import {MyTable,InfoBox,Area_aboveMap,
+import {MyTable,InfoBox,Area_aboveMap,LineGraph,
   Map_India} from './components';
 import {fetchData} from './api';
 import "./App.css";
@@ -55,11 +55,11 @@ function App () {
     {
       const fetchedData = await fetchData();
       let sortedData=sortData(fetchedData.statewise);
-      console.log(fetchedData.statewise);
-      console.log(sortedData);
+     // console.log(fetchedData.cases_time_series);
+      //console.log(fetchedData);
       setData(
         {
-          case_time_series:fetchedData.case_time_series,
+          case_time_series:fetchedData.cases_time_series,
           statewise:sortedData,
           tested:fetchedData.tested
     
@@ -132,6 +132,9 @@ function App () {
         <div className="app-right">
         {/* <Area_aboveMap/> */}
         <Map_India states={data.statewise} casesType={casesType} center={mapCenter} zoom={mapZoom}/>
+        <LineGraph casesType={"confirmed"} indiaTimeSeries={data.case_time_series}/>
+        <LineGraph casesType={"recovered"} indiaTimeSeries={data.case_time_series}/>
+        <LineGraph casesType={"deceased"} indiaTimeSeries={data.case_time_series}/>
         </div>
       
       {/* <Charts/>

@@ -26,8 +26,8 @@ const casesTypeColors = {
   
   function Map_India({states,casesType,center,zoom}) {
     
-    console.log(datall);
-    console.log(states);
+    //.log(datall);
+   // console.log(states);
 
     
     return (
