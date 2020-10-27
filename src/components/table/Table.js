@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {Table,
 TableContainer,
 Paper,TableBody,
 TableHead,TableRow,
 TableCell,createMuiTheme,
 makeStyles,withStyles,ThemeProvider,
-Typography
+Typography,CircularProgress
 } from '@material-ui/core';
 import CountUp from 'react-countup';
 import "./Table.css";
@@ -45,9 +45,155 @@ const useStyles = makeStyles({
 });
 
 
-function MyTable({data}) {
+
+function MyTable({data,stateName}) {
     
+   
     const classes = useStyles();
+    const [districtData, setdistrictData] = useState();
+
+    useEffect(()=>{
+      const fetch_data =async ()=>{
+      
+      await fetch("https://api.covid19india.org/state_district_wise.json")
+      .then((response)=> response.json())
+      .then((data)=>{
+
+        
+      
+          console.log(stateName);
+          
+          setdistrictData(data);
+
+          //console.log(data.cases_time_series);
+      })
+  };
+    
+
+  fetch_data();
+  },[]);
+
+   const getBody = () =>{
+
+    if(stateName==="Total")
+    {
+     return(
+      data
+      .filter(
+          row => row.state!=='Total'
+      )
+      .map((row) => (
+        <StyledTableRow style={{height: 1}} key={row.state}>
+          <StyledTableCell component="th" scope="row">
+            {row.state}
+          </StyledTableCell>
+          <StyledTableCell align="right">
+            <Typography >
+                <CountUp
+                    start={0}
+                    end={row.active} 
+                    duration ={1}
+                    separator=","
+                />
+            </Typography>
+          </StyledTableCell>
+          <StyledTableCell align="right">
+          <Typography >
+                <CountUp
+                    start={0}
+                    end={row.confirmed}
+                    duration ={1}
+                    separator=","
+                />
+            </Typography>
+          
+          </StyledTableCell>
+          <StyledTableCell align="right">
+          <Typography >
+                <CountUp
+                    start={0}
+                    end={row.recovered}
+                    duration ={1}
+                    separator=","
+                />
+            </Typography>
+          </StyledTableCell>
+          <StyledTableCell align="right">
+            <Typography >
+                <CountUp
+                    start={0}
+                    end={row.deaths}
+                    duration ={1}
+                    separator=","
+                />
+            </Typography>
+            </StyledTableCell>
+        </StyledTableRow>
+      ))
+     )
+    }
+    else{
+      return(
+       Object.keys(
+        
+        districtData[stateName].districtData
+         
+        
+        )
+        .map((key) => (
+          <StyledTableRow style={{height: 1}} key={key}>
+            <StyledTableCell component="th" scope="row">
+              {key}
+            </StyledTableCell>
+            <StyledTableCell align="right">
+              <Typography >
+                  <CountUp
+                      start={0}
+                      end={districtData[stateName].districtData[key].active} 
+                      duration ={1}
+                      separator=","
+                  />
+              </Typography>
+            </StyledTableCell>
+            <StyledTableCell align="right">
+            <Typography >
+                  <CountUp
+                      start={0}
+                      end={districtData[stateName].districtData[key].confirmed }
+                      duration ={1}
+                      separator=","
+                  />
+              </Typography>
+            
+            </StyledTableCell>
+            <StyledTableCell align="right">
+            <Typography >
+                  <CountUp
+                      start={0}
+                      end={districtData[stateName].districtData[key].recovered} 
+                      duration ={1}
+                      separator=","
+                  />
+              </Typography>
+            </StyledTableCell>
+            <StyledTableCell align="right">
+              <Typography >
+                  <CountUp
+                      start={0}
+                      end={districtData[stateName].districtData[key].deceased} 
+                      duration ={1}
+                      separator=","
+                  />
+              </Typography>
+              </StyledTableCell>
+          </StyledTableRow>
+        ))
+       )
+    }
+
+   }
+
+  
     //console.log(data);
     return(
       <div className="table" >
@@ -64,58 +210,7 @@ function MyTable({data}) {
           </StyledTableRow>
         </TableHead>
         <TableBody>
-          {data
-          .filter(
-              row => row.state!=='Total'
-          )
-          .map((row) => (
-            <StyledTableRow style={{height: 1}} key={row.state}>
-              <StyledTableCell component="th" scope="row">
-                {row.state}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                <Typography >
-                    <CountUp
-                        start={0}
-                        end={row.active} 
-                        duration ={1}
-                        separator=","
-                    />
-                </Typography>
-              </StyledTableCell>
-              <StyledTableCell align="right">
-              <Typography >
-                    <CountUp
-                        start={0}
-                        end={row.confirmed}
-                        duration ={1}
-                        separator=","
-                    />
-                </Typography>
-              
-              </StyledTableCell>
-              <StyledTableCell align="right">
-              <Typography >
-                    <CountUp
-                        start={0}
-                        end={row.recovered}
-                        duration ={1}
-                        separator=","
-                    />
-                </Typography>
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                <Typography >
-                    <CountUp
-                        start={0}
-                        end={row.deaths}
-                        duration ={1}
-                        separator=","
-                    />
-                </Typography>
-                </StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {getBody()}
         </TableBody>
       </Table>
     </TableContainer>

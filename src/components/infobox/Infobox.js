@@ -1,12 +1,15 @@
-import React from "react";
-import { Card, CardContent, Typography } from "@material-ui/core";
+import React, { useEffect } from "react";
+import { Card, CardContent, Typography,CircularProgress } from "@material-ui/core";
 import "./Infobox.css";
 import CountUp from 'react-countup';
 import numeral from "numeral";
 
-function InfoBox({ title, cases, total, active, isRed, ...props }) {
-  //console.log(title, active);
+function InfoBox({state, title,data, total, active, isRed, ...props }) {
+ 
+  //console.log(data);
+  if(!data) return <CircularProgress />
   return (
+    
     <Card
       onClick={props.onClick}
       className={`infoBox ${active && "infoBox--selected"}
@@ -31,7 +34,7 @@ function InfoBox({ title, cases, total, active, isRed, ...props }) {
          <h4>{title}</h4> 
         </Typography>
         <Typography variant="h5"> 
-           
+          
           <CountUp  className={`infoBox__cases 
           ${
             isRed && "infoBox__cases--red"
@@ -49,8 +52,7 @@ function InfoBox({ title, cases, total, active, isRed, ...props }) {
           `}
                   start={0}
                   end= {
-                    cases
-                   
+                   data
                   }
                   duration ={1.5}
                   separator=","

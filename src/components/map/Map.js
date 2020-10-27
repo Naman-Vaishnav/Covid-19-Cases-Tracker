@@ -32,7 +32,7 @@ const casesTypeColors = {
     
     return (
       <div className="map">
-      <LeafletMap center={center} zoom={zoom}>
+      <LeafletMap center={center} zoom={zoom} >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -63,8 +63,13 @@ const casesTypeColors = {
                         
                       ) * casesTypeColors[casesType].multiplier
                   }
+                  onMouseOver={(e) => {
+                  e.target.openPopup();
+                }}
+                  
                 >
-                  <Popup >
+                
+                  <Popup   >
                     <div className="info-container">
                       <div className="info-name"><h3>{st.state}</h3></div>
                       <div className="info-confirmed">

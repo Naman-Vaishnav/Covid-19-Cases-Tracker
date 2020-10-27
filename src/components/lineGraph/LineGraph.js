@@ -37,7 +37,7 @@ function LineGraph({indiaTimeSeries,casesType="confirmed"}){
                 Math.max(chartData.length-150,0)
             ));
         
-            console.log(data);
+            //console.log(data);
             //console.log(data.cases_time_series);
         })
     };

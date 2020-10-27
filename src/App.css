@@ -13,7 +13,9 @@
   }
 
 .app-center {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #f5f6fa;
   }
 
@@ -28,14 +30,14 @@
     
   }
 
-  .image{
+  /* .image{
     background-color: #f5f6fa; 
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
    
-  }
+  } */
   @media (max-width: 1000px) {
     .app {
       flex-direction: column;

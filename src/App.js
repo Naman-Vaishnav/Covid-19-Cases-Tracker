@@ -6,10 +6,15 @@ import {MyTable,InfoBox,Area_aboveMap,LineGraph,
 import {fetchData} from './api';
 import "./App.css";
 import "leaflet/dist/leaflet.css";
-import {Typography} from '@material-ui/core';
+import {Typography,
+  FormControl,
+  MenuItem,
+  Select
+} from '@material-ui/core';
 import numeral from "numeral";
 import { prettyPrintStat } from "./util";
 import image from './image.png'
+import datall from './components/map/india-lan-lng.json';
 
 const sortData = (data) => {
   let sortedData = [...data];
@@ -39,6 +44,7 @@ function App () {
           lastupdatedtime: "",
           migratedother: "",
           recovered: "",
+          statecode: "",
           state: ""
         }
       ],
@@ -49,6 +55,11 @@ function App () {
   const [mapCenter, setMapCenter] = useState({ lat:20.5937 ,lng: 78.9629 });
   const [mapZoom, setMapZoom] = useState(4);
   const [casesType, setcasesType] = useState("active");
+  const [stateCode, setstateCode] = useState("TT");
+  const [stateName, setstateName] = useState("Total");
+  const [stateInfo, setstateInfo] = useState({});
+
+  
   
 
   async function loader()
@@ -64,14 +75,37 @@ function App () {
           tested:fetchedData.tested
     
         }
+        
       );
+      setstateInfo(fetchedData.statewise.find(s=>s.statecode==="TT"));
       
+      //console.log(fetchedData.statewise.find(s=>s.statecode==="TT"));
     }
 
   useEffect(()=>{
     loader();
+    
   },[]);
 
+  const onCountryChange = async (e,ind) => {
+    const countryCode = e.target.value;
+    const state_lan_lng=datall.find( s => s.State.toUpperCase() === ind.props.children.toUpperCase());
+       console.log(ind.props.children);
+       setstateName(ind.props.children);
+       setstateCode(countryCode);
+       setstateInfo(data.statewise.find(s=>s.statecode===countryCode));
+       //console.log(state);
+      
+        if(state_lan_lng){
+          setMapCenter([state_lan_lng.lat,state_lan_lng.lng]);
+          setMapZoom(7);
+        }
+        else {
+          setMapCenter({ lat:20.5937 ,lng: 78.9629 });
+          setMapZoom(4);
+        }
+     
+  };
  
     return (
       <div>
@@ -79,6 +113,18 @@ function App () {
         <div className="app-center">
         <img className="image" src={image} />
         <Typography variant="h5" align="center" color="textSecondary">Last Updated:{data.statewise[0].lastupdatedtime}</Typography>
+        <FormControl className="app__dropdown">
+            <Select
+              variant="outlined"
+              value={stateCode}
+              onChange={onCountryChange}
+            >
+              
+              {data.statewise.map((state) => (
+                <MenuItem  value={state.statecode}>{state.state}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
         
         
@@ -91,8 +137,14 @@ function App () {
             isRed
             active={casesType === "active"}
             //cases={prettyPrintStat(parseInt( data.statewise[0].active))}
-            cases={data.statewise[0].active}
-           
+            data={
+             
+              stateInfo.active
+              //console.log( stateInfo.active)
+              //stateInfo.active
+              //console.log(data.statewise.find(s=>s.statecode==="GJ"))
+            }
+            
             
            // total={0}
           />
@@ -103,8 +155,8 @@ function App () {
             isOrange
             active={casesType === "confirmed"}
             //cases={prettyPrintStat(parseInt( data.statewise[0].active))}
-            cases={data.statewise[0].confirmed}
-           // total={0}
+            data={stateInfo.confirmed}
+           
           />
           <InfoBox
             onClick={(e) => setcasesType("recovered")}
@@ -112,7 +164,7 @@ function App () {
             isGreen
             active={casesType === "recovered"}
             //cases={prettyPrintStat(parseInt( data.statewise[0].active))}
-            cases={ data.statewise[0].recovered}
+            data={stateInfo.recovered}
            // total={0}
           />
           <InfoBox
@@ -121,13 +173,16 @@ function App () {
             isBlack
             active={casesType === "deaths"}
             //cases={prettyPrintStat(parseInt( data.statewise[0].active))}
-            cases={data.statewise[0].deaths}
+            data={stateInfo.deaths}
            // total={0}
           />
           </div>
      <div className="app">
         <div className="app-left">
-          <MyTable data={data.statewise}/>
+          <MyTable 
+          stateName={stateName}
+          data={data.statewise}/
+          >
         </div>
         <div className="app-right">
         {/* <Area_aboveMap/> */}
