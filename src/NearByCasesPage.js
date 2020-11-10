@@ -28,7 +28,6 @@ function NearByCases() {
 
   return (
     <div >
-    
      <TextField
           id="address"
           label="Enter your current address"
