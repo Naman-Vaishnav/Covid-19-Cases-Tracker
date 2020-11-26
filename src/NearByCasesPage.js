@@ -91,6 +91,8 @@ function NearByCases() {
      variant="contained" color="primary">
      Locate this address
      </Button>
+
+     <div style={{ paddingLeft: "25%"  }}>
      <LeafletMap className="map" center={Center} zoom={Zoom}
      on
     //  ondragend={(e)=>{
@@ -127,6 +129,7 @@ function NearByCases() {
         </Marker>  */}
         
       </LeafletMap>
+      </div>
       
     </div>
   );
