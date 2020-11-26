@@ -14,15 +14,18 @@
     "classnames": "^2.2.6",
     "d3-scale": "^3.2.3",
     "leaflet": "^1.7.1",
+    "leaflet-defaulticon-compatibility": "^0.1.1",
     "numeral": "^2.0.6",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.10.0",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
+    "react-leaflet-enhanced-marker": "^1.0.19",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-simple-maps": "^2.1.2"
+    "react-simple-maps": "^2.1.2",
+    "use-force-update": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

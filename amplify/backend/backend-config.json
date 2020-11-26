@@ -6,5 +6,30 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "api": {
+    "AddressAPI": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authmyapp92fc888e"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 80,
+                "description": "addrApi"
+              }
+            }
+          ]
+        }
+      }
+    }
   }
 }
