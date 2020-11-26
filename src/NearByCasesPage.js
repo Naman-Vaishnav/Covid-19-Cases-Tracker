@@ -11,6 +11,8 @@ import "leaflet/dist/leaflet.css";
 import Marker from 'react-leaflet-enhanced-marker';
 import useForceUpdate from 'use-force-update';
 import makeStyles from "@material-ui/styles/makeStyles";
+
+
 Amplify.configure(awsconfig)
 
 const useStyles = makeStyles({
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
 function NearByCases() {
   
     const [Address, setAddress] = useState("India");
-    const [Center, setCenter] = useState({ lat:28.61283 ,lng: 77.22925649999999 });
+    const [Center, setCenter] = useState({ lat:23.12820 ,lng: 72.5433945 });
     const [Zoom, setZoom] = useState(4);
     const [PAddress,setPAddress]=useState([]);
 
@@ -46,6 +48,8 @@ function NearByCases() {
    
     useEffect(()=>{
        fetchAddress();
+       console.log(Zoom);
+       console.log(Center);
     },[]);
 
     const forceUpdate = useForceUpdate();
@@ -57,7 +61,7 @@ function NearByCases() {
          
         console.log(data.features[0].center)
         setCenter(prev=>(
-        {lat:data.features[0].center[1],lng:data.features[0].center[0]}
+        {...prev,lat:data.features[0].center[1],lng:data.features[0].center[0]}
         )
         )
           
@@ -72,6 +76,7 @@ function NearByCases() {
     const classes = useStyles();
   return (
     <div >
+      <p> {Center.lat } {Center.lng } </p>
      <TextField
           id="address"
           label="Enter your current address"
@@ -99,7 +104,13 @@ function NearByCases() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-
+        <Marker icon={
+        <div style={ { textAlign:"center" }} >
+          <img src={require('./curloc.png')} style={{ width:'1'}} />
+        </div>
+        } 
+         position={Center} />
+        
         {
           PAddress.map((addr)=> 
           {
