@@ -5,13 +5,20 @@ import awsconfig from './aws-exports'
 import {AmplifySignOut,withAuthenticator} from '@aws-amplify/ui-react'
 import { createTodo } from './graphql/mutations';
 import { v4 as uuid} from 'uuid';
+import makeStyles from "@material-ui/styles/makeStyles";
+
 Amplify.configure(awsconfig)
 
+const useStyles = makeStyles({
+  root: {
+    width: 350
+  }
+});
 
 function RegisterCasePage() {
 
   const [address,setAddress]=useState();
-
+  const classes = useStyles();
   
   const addAddress =async () =>{
     console.log(address);
@@ -48,22 +55,26 @@ function RegisterCasePage() {
   }
   
   return (
-    <div >
+    <div  >
       <TextField
+      
           id="address"
           label="Enter your current address"
           multiline
           rows={4}
-          fullWidth
+          className={classes.root}
           onChange={(event)=>{setAddress(event.target.value)}}
           //defaultValue="Enter Current Address"
      />
-     <Button 
+     <Button style={{margin : "35px"}}
      onClick={addAddress} 
      variant="contained" color="primary">
      Add this address
      </Button>
+     <div style={{  paddingTop:"200px" , width : "35px" , margin : "auto"} }>
       <AmplifySignOut/>
+     </div>
+      
     </div>
   );
 }

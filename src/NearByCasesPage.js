@@ -10,8 +10,14 @@ import { listTodos } from './graphql/queries';
 import "leaflet/dist/leaflet.css";
 import Marker from 'react-leaflet-enhanced-marker';
 import useForceUpdate from 'use-force-update';
- 
+import makeStyles from "@material-ui/styles/makeStyles";
 Amplify.configure(awsconfig)
+
+const useStyles = makeStyles({
+  root: {
+    width: 350
+  }
+});
 
 function NearByCases() {
   
@@ -63,7 +69,7 @@ function NearByCases() {
        }
         )
     }
-
+    const classes = useStyles();
   return (
     <div >
      <TextField
@@ -71,7 +77,7 @@ function NearByCases() {
           label="Enter your current address"
           multiline
           rows={4}
-          fullWidth
+          className={classes.root}
           onChange={(event)=>{setAddress(event.target.value)}}
           //defaultValue="Enter Current Address"
      />
