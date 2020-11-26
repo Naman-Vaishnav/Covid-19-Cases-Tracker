@@ -76,7 +76,7 @@ function NearByCases() {
     const classes = useStyles();
   return (
     <div >
-      <p> {Center.lat } {Center.lng } </p>
+      {/* <p> {Center.lat } {Center.lng } </p> */}
      <TextField
           id="address"
           label="Enter your current address"
