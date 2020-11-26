@@ -16,7 +16,7 @@ Amplify.configure(awsconfig)
 function NearByCases() {
   
     const [Address, setAddress] = useState("India");
-    const [Center, setCenter] = useState({ lat:22.265639 ,lng: 70.780139 });
+    const [Center, setCenter] = useState({ lat:28.61283 ,lng: 77.22925649999999 });
     const [Zoom, setZoom] = useState(4);
     const [PAddress,setPAddress]=useState([]);
 
