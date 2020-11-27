@@ -59,7 +59,7 @@ function RegisterCasePage() {
       <TextField
       
           id="address"
-          label="Enter your current address"
+          label="Enter patient's address"
           multiline
           rows={4}
           className={classes.root}
