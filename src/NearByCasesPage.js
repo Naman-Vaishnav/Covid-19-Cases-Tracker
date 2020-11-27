@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 function NearByCases() {
   
     const [Address, setAddress] = useState("India");
-    const [Center, setCenter] = useState({ lat:23.12820 ,lng: 72.5433945 });
+    const [Center, setCenter] = useState({ lat:23.128201 ,lng: 72.5433945 });
     const [Zoom, setZoom] = useState(4);
     const [PAddress,setPAddress]=useState([]);
 
