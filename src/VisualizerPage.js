@@ -18,6 +18,7 @@ import {Typography,
 import numeral from "numeral";
 import { prettyPrintStat } from "./util";
 import image from './image.png'
+import github from './GitHub_Logo.png'
 import datall from './components/map/india-lan-lng.json';
 
 const sortData = (data) => {
@@ -118,6 +119,9 @@ function VisualizerPage () {
 
         <div className="app-center">
         <img className="image" src={image} />
+        <a href="https://github.com/Naman-Vaishnav/Covid-19-Cases-Tracker">
+        <img width={100} height={40} className="github" src={github} />
+        </a>
         <Typography variant="h5" align="center" color="textSecondary">Last Updated:{data.statewise[0].lastupdatedtime}</Typography>
         <FormControl className="app__dropdown">
             <Select
